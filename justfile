@@ -3,17 +3,17 @@ default:
 
 # Run antigravity from oleks.cachix.org (FHS-wrapped)
 run:
-	nix run \
-		--extra-substituters "https://oleks.cachix.org" \
-		--extra-trusted-public-keys "oleks.cachix.org-1:3+0qscV0/EFo5wE5dK24zKWeQk2zgwk12GtbYLD+JHI=" \
-		github:retif/antigravity-nix
+    nix run \
+    	--extra-substituters "https://oleks.cachix.org" \
+    	--extra-trusted-public-keys "oleks.cachix.org-1:3+0qscV0/EFo5wE5dK24zKWeQk2zgwk12GtbYLD+JHI=" \
+    	github:retif/antigravity-nix
 
 # Run antigravity from oleks.cachix.org (non-FHS, direct system)
 run-no-fhs:
-	nix run \
-		--extra-substituters "https://oleks.cachix.org" \
-		--extra-trusted-public-keys "oleks.cachix.org-1:3+0qscV0/EFo5wE5dK24zKWeQk2zgwk12GtbYLD+JHI=" \
-		github:retif/antigravity-nix#google-antigravity-no-fhs
+    nix run \
+    	--extra-substituters "https://oleks.cachix.org" \
+    	--extra-trusted-public-keys "oleks.cachix.org-1:3+0qscV0/EFo5wE5dK24zKWeQk2zgwk12GtbYLD+JHI=" \
+    	github:retif/antigravity-nix#google-antigravity-no-fhs
 
 # Build antigravity from cache
 build:
