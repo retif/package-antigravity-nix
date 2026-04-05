@@ -37,11 +37,21 @@ jobs:
       - name: Build default package
         run: nix build .#default --print-build-logs --system ${{ matrix.system }}
 
+      - name: Upload to cachix
+        run: |
+          cachix push oleks result
+          cachix watch-store oleks &
+
       - name: Build google-antigravity package
         run: nix build .#google-antigravity --print-build-logs --system ${{ matrix.system }}
 
       - name: Build google-antigravity-no-fhs package
         run: nix build .#google-antigravity-no-fhs --print-build-logs --system ${{ matrix.system }}
+
+      - name: Upload packages to cachix
+        run: |
+          cachix push oleks ./result
+          cachix push oleks ./result-bin
 
       - name: Run flake check
         run: nix flake check --print-build-logs --system ${{ matrix.system }}
